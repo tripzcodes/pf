@@ -1,7 +1,5 @@
 # my portfolio
 
-this is my portfolio site. it has a maze that generates itself in the background and a custom cursor.
-
 ## what this is
 
 a portfolio site with my name, a quote, and links to find me. kept it simple with clean typography and an animated maze background.
