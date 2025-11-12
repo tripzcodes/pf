@@ -4,7 +4,7 @@
 
 <svelte:head>
 	<title>Youssef Ashraf - Developer & Esports Player</title>
-	<meta name="description" content="Youssef Ashraf - Developer & Esports Player Portfolio" />
+	<meta name="description" content="Youssef Ashraf - Developer & Esports Player" />
 </svelte:head>
 
 <!-- HERO SECTION -->
