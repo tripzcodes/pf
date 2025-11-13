@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 
 	let canvas;
 	let ctx;
@@ -11,6 +12,9 @@
 	let current;
 	let isGenerating = true;
 	let generationSpeed = 3; // cells per frame
+
+	// Check if we're on a talk page
+	$: isTalkPage = $page.url.pathname.startsWith('/talks/');
 
 	class Cell {
 		constructor(i, j) {
@@ -209,7 +213,7 @@
 	});
 </script>
 
-<canvas bind:this={canvas} id="maze-canvas"></canvas>
+<canvas bind:this={canvas} id="maze-canvas" class:blurred={isTalkPage}></canvas>
 
 <style>
 	#maze-canvas {
@@ -220,5 +224,15 @@
 		height: 100%;
 		z-index: 0;
 		opacity: 0.05;
+		pointer-events: none;
+		transition: filter 0.3s ease;
+	}
+
+	#maze-canvas.blurred {
+		filter: blur(0.5px);
+	}
+
+	:root[data-theme='dark'] #maze-canvas.blurred {
+		filter: blur(3px);
 	}
 </style>

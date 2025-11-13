@@ -1,0 +1,12 @@
+{
+  "talks": [
+    {
+      "slug": "webassembly-svelte",
+      "title": "building a bank statement analyzer with webassembly + svelte",
+      "date": "2025",
+      "venue": "pei devs",
+      "description": "5-minute lightning talk on using wasm for compute and svelte for ui—performance without complexity",
+      "duration": "5 min"
+    }
+  ]
+}
