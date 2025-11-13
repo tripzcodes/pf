@@ -170,5 +170,5 @@ Svelte: direct DOM updates, compile-time reactivity
 - MDN webassembly guide
 
 **my implementation:**
-- github: [https://github.com/tripzcodes/Teller]
-- live demo: [https://tellerapp.ca]
+- github: [https://github.com/tripzcodes/Teller](https://github.com/tripzcodes/Teller)
+- live demo: [https://tellerapp.ca](https://tellerapp.ca)
