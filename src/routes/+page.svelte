@@ -1,5 +1,6 @@
 <script>
-	// Add any dynamic functionality here
+	import metadata from '$lib/content/talks/metadata.json';
+	const talks = metadata.talks;
 </script>
 
 <svelte:head>
@@ -29,6 +30,32 @@
 			birds who flock together,<br />
 			stay together
 		</blockquote>
+	</div>
+</section>
+
+<!-- TALKS SECTION -->
+<section id="talks">
+	<div class="container">
+		<div class="talks-content">
+			<h2 class="talks-title">"TALKS"</h2>
+			<div class="talks-list">
+				{#each talks as talk}
+					<a href="/talks/{talk.slug}" class="talk-item">
+						<div class="talk-item-header">
+							<h3 class="talk-item-title">{talk.title}</h3>
+							<div class="talk-item-meta">
+								<span class="meta-label">"DATE"</span>
+								<span class="meta-value">{talk.date}</span>
+								<span class="meta-divider">|</span>
+								<span class="meta-label">"VENUE"</span>
+								<span class="meta-value">{talk.venue}</span>
+							</div>
+						</div>
+						<p class="talk-item-description">{talk.description}</p>
+					</a>
+				{/each}
+			</div>
+		</div>
 	</div>
 </section>
 
@@ -110,6 +137,106 @@
 		max-width: 800px;
 	}
 
+	/* TALKS SECTION */
+	#talks {
+		min-height: auto;
+		padding: 1rem 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.talks-content {
+		text-align: left;
+		max-width: 800px;
+	}
+
+	.talks-title {
+		font-family: var(--font-mono);
+		font-size: clamp(1rem, 2vw, 1.25rem);
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		margin-bottom: 1.5rem;
+		margin-left: 0;
+		text-transform: uppercase;
+	}
+
+	.talks-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.talk-item {
+		display: block;
+		padding: 1.5rem;
+		border: 2px solid var(--color-fg);
+		background-color: transparent;
+		text-decoration: none;
+		transition: all 0.3s ease;
+		cursor: none;
+	}
+
+	.talk-item:hover {
+		background-color: var(--color-fg);
+		color: var(--color-bg);
+		transform: translateX(8px);
+	}
+
+	.talk-item-header {
+		margin-bottom: 0.75rem;
+	}
+
+	.talk-item-title {
+		font-family: var(--font-sans);
+		font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+		font-weight: 700;
+		line-height: 1.3;
+		margin-bottom: 0.5rem;
+		color: inherit;
+		letter-spacing: -0.01em;
+	}
+
+	.talk-item-meta {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	.meta-label {
+		font-family: var(--font-mono);
+		font-size: 0.7rem;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		opacity: 0.6;
+	}
+
+	.meta-value {
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		font-weight: 400;
+	}
+
+	.meta-divider {
+		opacity: 0.3;
+	}
+
+	.talk-item-description {
+		font-family: var(--font-sans);
+		font-size: clamp(0.9rem, 1.5vw, 1rem);
+		line-height: 1.6;
+		opacity: 0.85;
+		margin: 0;
+	}
+
+	.talk-item:hover .talk-item-title,
+	.talk-item:hover .talk-item-description,
+	.talk-item:hover .meta-label,
+	.talk-item:hover .meta-value {
+		color: var(--color-bg);
+	}
+
 	/* CONTACT SECTION */
 	#contact {
 		min-height: auto;
@@ -166,14 +293,28 @@
 	@media (max-width: 768px) {
 		#hero,
 		#quote,
+		#talks,
 		#contact {
 			padding: 1.5rem 0;
 		}
 
 		.hero-content,
+		.talks-content,
 		.contact-content,
 		.quote-text {
 			max-width: 100%;
+		}
+
+		.talk-item {
+			padding: 1rem;
+		}
+
+		.talks-list {
+			gap: 1rem;
+		}
+
+		.talk-item-title {
+			font-size: clamp(1.125rem, 5vw, 1.25rem);
 		}
 
 		.hero-title {
