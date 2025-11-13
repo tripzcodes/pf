@@ -2,7 +2,7 @@
 
 ## what this is
 
-a portfolio site with my name, a quote, and links to find me. kept it simple with clean typography and an animated maze background.
+a portfolio site with my name, a quote, talks section, and links to find me. kept it simple with clean typography and an animated maze background. includes individual pages for tech talks with markdown support.
 
 ## running locally
 
@@ -19,8 +19,9 @@ open localhost:5173 in your browser.
 
 - sveltekit
 - canvas api for the maze (recursive backtracking algorithm)
-- pure css
+- pure css with custom scrollbar
 - inter and ibm plex mono fonts
+- marked + sanitize-html for markdown rendering
 
 ## features
 
